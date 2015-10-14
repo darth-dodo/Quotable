@@ -1,0 +1,1 @@
+{"options":{},"indexes":[{"v":1,"key":{"_id":1},"name":"_id_","ns":"Quotable.authors"},{"v":1,"key":{"author":1.0,"likes":-1.0},"name":"author_1_likes_-1","ns":"Quotable.authors"}]}

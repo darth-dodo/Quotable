@@ -1,0 +1,81 @@
+db.modes.remove({_id:{$in : [1,2,3,4]}})
+
+db.modes.insert([
+{
+    "site" : "imdb"
+    ,"_id" : 1
+    ,"media" : "movies"
+    ,"modes" : [
+           {
+            "name" : "View quotes from Top 250 movies",
+            "url" : "movies/top-250"
+            },
+            {
+                "name":"List all available movies",
+                "url" : "movies/list-all"
+            },
+            {
+                "name":"Randomizer!",
+                "url" : "movies/randomizer"
+            },
+            {
+                "name":"Request a movie",
+                "url" : "movies/imdb-req"
+            }
+    ]
+},{
+    "site" : "imdb"
+    ,"_id" : 2
+    ,"media": "series"
+    ,"modes" : [
+            {
+                "name" : "View quotes from Top250 TV series",
+                "url" : "series/top-250tv"
+            },
+            {
+                "name":"List all available series",
+                "url" : "series/list-all"
+            },
+            {
+                "name":"Randomizer!",
+                "url" : "series/randomizer"
+            },
+            {
+                "name":"Request a movie",
+                "url" : "series/imdb-req"
+            }
+    ]
+}]);
+
+db.modes.insert([
+{
+    "site" : "goodreads"
+    ,"_id" : 3
+    ,"media" : "popular"
+    ,"modes" : [
+        {
+         "name": "View popular tags"
+        ,"url" : "popular/tags"
+    }
+    ,{
+        "name":"View top 10 quotes"
+        ,"url" : "popular/top-10"
+    }
+    ,{    "name" : "View all quotes"
+        ,"url" : "popular/view-all"
+    }
+    ,{
+        "name" : "Randomizer!"
+         ,"url" : "popular/randomizer"
+     }
+    ]
+},{
+    "site" : "goodreads"
+    ,"_id" : 4
+    ,"media": "Authors"
+    ,"modes" : [
+        {"name" : "View available authors", "url" : "authors/view-all"}
+        ,{"name" : "Random author", "url" : "authors/randomizer"}
+        ,{"name" : "Request an author", "url" : "req-author"}
+    ]
+}]);

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<style type="text/css">
+ li {
+  line-height: 20px;
+  list-style-type: none;
+}
+</style>
+<head>
+	<title>Mode</title>
+</head>
+<body>
+	{% extends "base.html" %}
+
+{% block content %}
+
+{% for pos in listed_modes %}
+	<h2  align="right">{{ pos.media }}</h2>
+	<ul>
+		{% for mode in pos.modes %}
+			<a href="http://127.0.0.1:8000/{{ pos.site }}/{{mode.url}}"><li>{{ mode.name }}</li></a>
+		{% endfor %}
+	</ul>
+{% endfor %}
+
+
+{% endblock %}
+</body>
+</html>

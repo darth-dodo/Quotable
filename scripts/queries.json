@@ -1,0 +1,36 @@
+///popular quotes
+
+>db.popular.find({},{"author":1,"quote":1,"likes":1,"tags":1}).sort({"likes":-1}).limit(10).pretty()
+
+// find authors in all_authors
+
+db.popular.aggregate([{"$unwind":"$tags"},{"$group":{}}])
+
+> db.all_authors.find({"$text":{"$search":"Terry"}}).sort({"followers":-1}).pretty()
+
+> db.all_authors.find({"$text":{"$search":"Patrick"}},{"link":1}).sort({"followers":-1}).pretty()
+
+//create text search index on all_authors
+
+> db.all_authors.ensureIndex({"_id":"text"})
+
+// find author specific content
+
+> db.authors.find({"author":"Patrick Rothfuss"}).sort({"likes":-1}).limit(20).pretty()
+
+//indexing authors
+// collscan
+> db.authors.find({"author":"Patrick Rothfuss"}).limit(10).sort({"likes":-1}).pretty().explain({"executionstats":1})
+
+//author : ascd and likes: desc
+> db.authors.createIndex({"author":1,"likes":-1})
+
+//now a covered query
+
+> db.authors.find({"author":"Patrick Rothfuss"}).limit(10).sort({"likes":-1}).pretty().explain({"executionstats":1})
+
+
+
+
+mongodump -d <our database name> -o <directory_backup>
+mongorestore <our database name>
