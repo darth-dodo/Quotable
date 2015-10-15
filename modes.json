@@ -79,3 +79,15 @@ db.modes.insert([
         ,{"name" : "Request an author", "url" : "req-author"}
     ]
 }]);
+
+
+db.media_desc.insert([
+                     {
+                        "media_type" : "movies"
+                     , "media_collections" : ["top_250", "user_req"]
+                      }
+                     ,{
+                        "media_type" : "series"
+                     , "media_collections" : ["top_250tv", "user_req"]
+                    }
+                     ])

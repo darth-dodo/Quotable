@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<style type="text/css">
+ li {
+  line-height: 20px;
+  list-style-type: none;
+}
+</style>
+<head>
+    <title>Mode</title>
+</head>
+<body>
+    {% extends "base.html" %}
+{% block content %}
+
+<div>
+    <div>
+        <h1> {{ all_quotes.name }}
+        </h1>
+    </div>
+
+    <div>
+        {% if all_quotes.quotes|length == 0%}
+               <div>No quotes present for {{ all_quotes.name }} on IMDB! :(</div>
+        {% endif %}
+        <ol>
+            {% for quote in all_quotes.quotes  %}
+                <li>{{ quote }}</li><br>
+            {% endfor %}
+        </ol>
+
+    </div>
+</div>
+
+{% endblock %}
+</body>
+</html>
